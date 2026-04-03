@@ -45,12 +45,6 @@ export default function About({ short = false }: { short?: boolean }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-8 -right-8 bg-bg-surface text-primary p-6 rounded-2xl shadow-2xl max-w-xs border border-white/10">
-                <p className="font-serif italic text-lg mb-2">
-                  I look forward to working with you!
-                </p>
-              </div>
             </div>
           </motion.div>
 
