@@ -11,13 +11,13 @@ export default function About({ short = false }: { short?: boolean }) {
     },
     {
       icon: <Users className="w-6 h-6" />,
-      label: "Specialized In",
-      value: "Youth & Families",
+      label: "Fun & Engaging",
+      value: "Approach",
     },
     {
       icon: <Heart className="w-6 h-6" />,
-      label: "Approach",
-      value: "Strengths-Based",
+      label: "Perspective",
+      value: "Strengths-Focused",
     },
   ];
 
@@ -78,27 +78,27 @@ export default function About({ short = false }: { short?: boolean }) {
               <p>
                 I am a licensed psychologist, owner of Montana
                 Counseling and Assessment, PLLC, and Chair of Psychology at Carroll
-                College. I have worked to support children and 
+                College. I have worked with children and 
                 families for over 20 years, in settings 
                 ranging from maximum security corrections to community private practice.
               </p>
               <p>
-                My therapeutic style is characterized by warmth, genuineness,
+                My practice is characterized by warmth, genuineness,
                 and strengths-based intervention. I recognize that many may be hesitant to 
-                engage in counseling, so I provide a collaborative environment that allows 
-                clients ot feel comfortable and encouraged in facing their challenges. 
+                engage in counseling, so I provide a collaborative environment where 
+                clients can feel comfortable and encouraged in facing their challenges. 
                 When possible, I also incorporate a client's personal interests
-                (e.g., art, music, sports) into our work together, making
+                (e.g., art, music, sports) into our work, making
                 counseling an experience worth looking forward to. I
                 frequently work with individuals and families affected by
-                trauma, emotional difficulties, behavioral issues, and
+                trauma, emotional challenges, behavioral concerns, and
                 neurodivergence.
               </p>
               {!short && (
                 <p>
                   On a personal note, I grew up in Helena, and have returned
                   here after years away because of my love for the community
-                  and the people who reside here. I spend most
+                  and its people. I spend most
                   of my free time outdoors with my wife and two
                   children, who constantly remind me how important it is to
                   ensure a positive future for our kids.
