@@ -15,14 +15,14 @@ export default function Home() {
     {
       title: "Experiential Therapy",
       description:
-        "Activity-based and outdoor modalities to facilitate key skill practice in-session.",
+        "Activity-based and outdoor modalities to facilitate learning through experience",
       icon: <Users className="w-8 h-8" />,
       link: "/services#experiential",
     },
     {
       title: "Training & Consultation",
       description:
-        "Education and consulting services related to trauma-informed care and child development.",
+        "Education, consulting, and public speaking related to diverse psychological concepts",
       icon: <BookOpen className="w-8 h-8" />,
       link: "/training",
     },
@@ -52,7 +52,7 @@ export default function Home() {
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6"
             >
-              Explore My Services
+              Explore Services
             </motion.h3>
           </div>
 
