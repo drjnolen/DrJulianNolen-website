@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
@@ -14,21 +15,41 @@ import TrainingPage from './pages/TrainingPage';
 import GettingStartedPage from './pages/GettingStartedPage';
 import ContactPage from './pages/ContactPage';
 
-const routeSegments = new Set(['about', 'services', 'training', 'getting-started', 'contact']);
+const appRoutes = [
+  { path: '/', component: Home },
+  { path: '/about', component: AboutPage },
+  { path: '/services', component: ServicesPage },
+  { path: '/training', component: TrainingPage },
+  { path: '/getting-started', component: GettingStartedPage },
+  { path: '/contact', component: ContactPage },
+];
 
 function getRouterBasename() {
   if (typeof window === 'undefined') {
     return '/';
   }
 
-  const segments = window.location.pathname.split('/').filter(Boolean);
-  if (segments.length === 0) {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (pathname === '/') {
     return '/';
   }
 
-  const lastSegment = segments[segments.length - 1];
-  const baseSegments = routeSegments.has(lastSegment) ? segments.slice(0, -1) : segments;
-  return baseSegments.length > 0 ? `/${baseSegments.join('/')}` : '/';
+  const nestedRoutePaths = appRoutes
+    .map(({ path }) => path)
+    .filter((path) => path !== '/');
+
+  for (const routePath of nestedRoutePaths) {
+    if (pathname === routePath) {
+      return '/';
+    }
+
+    if (pathname.endsWith(routePath)) {
+      const basename = pathname.slice(0, -routePath.length);
+      return basename || '/';
+    }
+  }
+
+  return pathname;
 }
 
 export default function App() {
@@ -39,12 +60,11 @@ export default function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/training" element={<TrainingPage />} />
-            <Route path="/getting-started" element={<GettingStartedPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            {appRoutes.map(({path, component: Component}) => (
+              <Fragment key={path}>
+                <Route path={path} element={<Component />} />
+              </Fragment>
+            ))}
           </Routes>
         </main>
         <Footer />
