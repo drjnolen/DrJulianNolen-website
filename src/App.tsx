@@ -16,7 +16,7 @@ import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <div className="min-h-screen bg-bg-light text-text-main font-sans selection:bg-accent/30 selection:text-primary flex flex-col">
         <Navbar />
