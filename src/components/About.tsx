@@ -77,9 +77,9 @@ export default function About({ short = false }: { short?: boolean }) {
                 ranging from maximum security corrections to community private practice.
               </p>
               <p>
-                My practice is characterized by warmth, genuineness,
-                and strengths-based intervention. I recognize that many may be hesitant to 
-                engage in counseling, so I provide a collaborative environment where 
+                My work is characterized by warmth, genuineness,
+                and strengths-based intervention. I recognize that many people are hesitant to 
+                engage in counseling, so I create an environment where 
                 clients can feel comfortable and encouraged in facing their challenges. 
                 When possible, I also incorporate a client's personal interests
                 (e.g., art, music, sports) into our work, making
