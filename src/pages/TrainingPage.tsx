@@ -112,7 +112,7 @@ export default function TrainingPage() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-serif font-bold text-primary"
           >
-            Training & Consultation Services
+            Training, Consultation, and Public Speaking
           </motion.h1>
         </div>
 
