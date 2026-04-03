@@ -52,7 +52,7 @@ export default function Welcome() {
             <div className="space-y-6 text-lg text-text-muted font-light leading-relaxed mb-10">
               <p>
                 I am a licensed psychologist and college professor located in Helena, Montana. My work combines cutting-edge and evidence-based 
-                techniques with compassion, warmth, and a strengths-based perspective. I specialize in providing sensitive and effective psychological services to children, adolescents, and families. I also provide educational and consulting services to organizations throughout the US.
+                techniques with compassion, warmth, and a strengths-based perspective. I specialize in providing psychological services to children, adolescents, and families. I also provide educational and consulting services to organizations throughout the US.
               </p>
               <p>
                 To learn more about me, my experience, or what to expect when working together, please visit the{" "}
