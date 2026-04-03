@@ -96,9 +96,9 @@ export default function TrainingPage() {
 
   return (
     <div className="pt-32 pb-24 bg-bg-light min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
-        {/* Header Section */}
-        <div className="text-center mb-16">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+        <div className="text-center mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -110,31 +110,18 @@ export default function TrainingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-serif font-bold text-primary mb-10"
+            className="text-3xl md:text-4xl font-serif font-bold text-primary"
           >
             Training & Consultation Services
           </motion.h1>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="w-full aspect-[21/9] md:aspect-[3/1] rounded-3xl overflow-hidden shadow-xl mb-12 border border-white/10"
-          >
-            <img
-              src="https://picsum.photos/seed/training-seminar/1200/400"
-              alt="Training and Consultation Seminar"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-text-muted font-light leading-relaxed space-y-6 text-left"
+            className="text-lg text-text-muted font-light leading-relaxed space-y-6"
           >
             <p>
               I provide education, training, and consulting services grounded in clinical best practices and current research. My most requested topics include trauma-informed care, strengths-based intervention, child/adolescent development, and creative therapeutic approaches (e.g., music therapy, experiential intervention) for especially-challenging cases.
@@ -145,7 +132,7 @@ export default function TrainingPage() {
             <p>
               A number of previously-provided seminars are outlined below. I am also happy to develop custom training and consulting packages tailored to your organization's specific needs. Fees are based on hourly commitment and travel requirements.
             </p>
-            <div className="text-center pt-4">
+            <div className="pt-2">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-3 bg-primary text-bg-light font-medium rounded-full hover:bg-primary-light transition-colors"
@@ -154,7 +141,26 @@ export default function TrainingPage() {
               </Link>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-white/10">
+              <img
+                src="https://images.pexels.com/photos/32063097/pexels-photo-32063097.jpeg"
+                alt="Training and Consultation Seminar"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
 
         {/* Trainings Accordion */}
         <div className="space-y-4">
