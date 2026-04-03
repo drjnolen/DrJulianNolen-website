@@ -78,17 +78,15 @@ export default function About({ short = false }: { short?: boolean }) {
               <p>
                 I am a licensed psychologist, owner of Montana
                 Counseling and Assessment, PLLC, and Chair of Psychology at Carroll
-                College. I have worked to support children, adolescents, and 
-                their families for over 20 years, in settings 
-                ranging from maximum security corrections to chronic illness
-                clinics and community private practice.
+                College. I have worked to support children and 
+                families for over 20 years, in settings 
+                ranging from maximum security corrections to community private practice.
               </p>
               <p>
                 My therapeutic style is characterized by warmth, genuineness,
-                and strengths-based intervention. I recognize that many children
-                and families may be hesitant to engage in counseling, so I provide
-                an engaging and collaborative environment that allows clients to 
-                feel comfortable and encouraged in facing their life challenges.
+                and strengths-based intervention. I recognize that many may be hesitant to 
+                engage in counseling, so I provide a collaborative environment that allows 
+                clients ot feel comfortable and encouraged in facing their challenges. 
                 When possible, I also incorporate a client's personal interests
                 (e.g., art, music, sports) into our work together, making
                 counseling an experience worth looking forward to. I
@@ -99,9 +97,9 @@ export default function About({ short = false }: { short?: boolean }) {
               {!short && (
                 <p>
                   On a personal note, I grew up in Helena, and have returned
-                  here after years away because I so greatly appreciate the
-                  wonderful community of people that reside here. I spend most
-                  of my free time in the Montana outdoors with my wife and two
+                  here after years away because of my love for the community
+                  and the people who reside here. I spend most
+                  of my free time outdoors with my wife and two
                   children, who constantly remind me how important it is to
                   ensure a positive future for our kids.
                 </p>
