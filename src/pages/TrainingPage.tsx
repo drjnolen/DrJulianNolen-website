@@ -119,39 +119,35 @@ export default function TrainingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="w-full aspect-[21/9] md:aspect-[3/1] rounded-3xl overflow-hidden shadow-xl mb-12 border border-white/10"
+            className="flex flex-col md:flex-row gap-10 items-start text-left"
           >
-            <img
-              src="https://picsum.photos/seed/training-seminar/1200/400"
-              alt="Training and Consultation Seminar"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-text-muted font-light leading-relaxed space-y-6 text-left"
-          >
-            <p>
-              I provide education, training, and consulting services grounded in clinical best practices and current research. My most requested topics include trauma-informed care, strengths-based intervention, child/adolescent development, and creative therapeutic approaches (e.g., music therapy, experiential intervention) for especially-challenging cases.
-            </p>
-            <p>
-              I incorporate multisensory presentation techniques, audience participation, enthusiasm, and humor in order to make nuanced topics both approachable and enjoyable. My goal is not just to share information, but to make it meaningful and to support your team in effectively implementing new skills in their daily work.
-            </p>
-            <p>
-              A number of previously-provided seminars are outlined below. I am also happy to develop custom training and consulting packages tailored to your organization's specific needs. Fees are based on hourly commitment and travel requirements.
-            </p>
-            <div className="text-center pt-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 bg-primary text-bg-light font-medium rounded-full hover:bg-primary-light transition-colors"
-              >
-                Inquire About Training
-              </Link>
+            <div className="flex-1 text-lg text-text-muted font-light leading-relaxed space-y-6">
+              <p>
+                I provide education, training, and consulting services grounded in clinical best practices and current research. My most requested topics include trauma-informed care, strengths-based intervention, child/adolescent development, and creative therapeutic approaches (e.g., music therapy, experiential intervention) for especially-challenging cases.
+              </p>
+              <p>
+                I incorporate multisensory presentation techniques, audience participation, enthusiasm, and humor in order to make nuanced topics both approachable and enjoyable. My goal is not just to share information, but to make it meaningful and to support your team in effectively implementing new skills in their daily work.
+              </p>
+              <p>
+                A number of previously-provided seminars are outlined below. I am also happy to develop custom training and consulting packages tailored to your organization's specific needs. Fees are based on hourly commitment and travel requirements.
+              </p>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-primary text-bg-light font-medium rounded-full hover:bg-primary-light transition-colors"
+                >
+                  Inquire About Training
+                </Link>
+              </div>
+            </div>
+            <div className="w-full md:w-72 shrink-0 rounded-3xl overflow-hidden shadow-xl border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=750&fit=crop"
+                alt="Stack of books"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>
