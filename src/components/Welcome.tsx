@@ -43,7 +43,7 @@ export default function Welcome() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="inline-block py-1 px-3 rounded-full bg-accent/20 text-accent-light text-sm font-medium tracking-wider uppercase mb-6 border border-accent/30">
-              Licensed Psychologist in Helena, MT
+              Counseling, Consulting, and Education
             </span>
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 leading-tight">
               Welcome
@@ -51,7 +51,8 @@ export default function Welcome() {
 
             <div className="space-y-6 text-lg text-text-muted font-light leading-relaxed mb-10">
               <p>
-                My name is Dr. Julian Nolen, and I am a licensed psychologist located in Helena, Montana. My therapeutic approach combines cutting-edge and evidence-based techniques with compassion, warmth, and a strengths-based perspective. I specialize in providing sensitive and effective psychological services to children, adolescents, young adults, and families. I also provide educational and training services to organizations seeking to improve their knowledge of pediatric health and development.
+                I am a licensed psychologist and college professor located in Helena, Montana. My work combines cutting-edge and evidence-based 
+                techniques with compassion, warmth, and a strengths-based perspective. I specialize in providing sensitive and effective psychological services to children, adolescents, and families. I also provide educational and consulting services to organizations throughout the US.
               </p>
               <p>
                 To learn more about me, my experience, or what to expect when working together, please visit the{" "}
