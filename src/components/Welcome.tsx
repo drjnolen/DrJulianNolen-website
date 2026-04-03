@@ -20,7 +20,7 @@ export default function Welcome() {
             <div className="relative w-3/4 md:w-4/5 lg:w-3/4">
               <div className="aspect-[4/5] w-full md:aspect-[3/4] rounded-3xl overflow-hidden shadow-xl">
                 <img
-                  src="https://drjuliannolen.com/wp-content/uploads/2021/01/Website-picture-e1610944586227-768x967.jpg"
+                  src="https://github.com/user-attachments/assets/93815d81-2309-485b-b94e-865d716c3a83"
                   alt="Dr. Julian Nolen"
                   referrerPolicy="no-referrer"
                   loading="lazy"
