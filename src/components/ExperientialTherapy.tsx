@@ -58,10 +58,7 @@ export default function ExperientialTherapy() {
                 While much of my practice is delivered via typical in-office therapy, I also specialize in experiential therapy – with a focus on activity-based and outdoor modalities.
               </p>
               <p>
-                These interventions draw from the clinical evidence base, while also integrating healthy activity and client interests in order to make therapy approachable and facilitate key skill practice in-session.
-              </p>
-              <p className="italic text-text-muted border-l-4 border-accent-light pl-4">
-                "Experiential therapy may not be the correct fit for everyone, but does offer unique opportunities for clients who have struggled with traditional therapy, need supported practice of behavioral activation, or benefit from real-world practice of key skill."
+                These interventions draw from the clinical evidence base, while also integrating healthy activity and client interests in order to make therapy approachable and facilitate key skill practice in-session. Experiential therapy may not be the correct fit for everyone, but does offer unique opportunities for clients who have struggled with traditional therapy, need supported practice of behavioral activation, or benefit from real-world practice of key skills.
               </p>
             </div>
           </motion.div>
