@@ -1,0 +1,848 @@
+/* Custom CSS for Daily Dashboard */
+:root {
+    --bg-color: #080c16;
+    --card-bg: rgba(16, 24, 48, 0.6);
+    --card-bg-hover: rgba(22, 34, 64, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color-active: rgba(99, 102, 241, 0.4);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent: #6366f1; /* Indigo */
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --success: #10b981; /* Emerald */
+    --danger: #f43f5e; /* Rose */
+    --warning: #f59e0b; /* Amber */
+    
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 35%),
+        radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-left h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(to right, #f8fafc, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.25rem;
+}
+
+.header-left p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.clock-display {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+#clock-time {
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+#clock-ampm {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+/* Widget Cards */
+.widget-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.widget-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    background: var(--card-bg-hover);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.widget-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.widget-title i {
+    color: var(--accent);
+    width: 20px;
+    height: 20px;
+}
+
+/* Grid Positions (Desktop default) */
+@media (min-width: 1200px) {
+    .weather-widget { grid-column: span 8; }
+    .markets-widget { grid-column: span 4; }
+    .habit-tracker-widget { grid-column: span 8; }
+    .chase-widget { grid-column: span 4; }
+    .news-widget { grid-column: span 12; }
+}
+
+@media (max-width: 1199px) {
+    .weather-widget, .markets-widget, .habit-tracker-widget, .chase-widget, .news-widget {
+        grid-column: span 12;
+    }
+}
+
+/* Weather & AQI Widget */
+.location-badge {
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.location-badge i {
+    width: 12px;
+    height: 12px;
+}
+
+.weather-current-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.weather-main-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.weather-icon-large {
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-icon-large i {
+    width: 44px;
+    height: 44px;
+    color: var(--warning);
+}
+
+.animated-weather-icon {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.current-temp-display {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.weather-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    text-transform: capitalize;
+}
+
+.weather-sub-info {
+    display: flex;
+    gap: 2rem;
+}
+
+.sub-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sub-info-item .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.sub-info-item .val {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.aqi-val-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aqi-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    box-shadow: 0 0 8px transparent;
+}
+
+.aqi-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Forecast section */
+.forecast-section h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.forecast-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.forecast-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.forecast-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+}
+
+.forecast-item {
+    flex: 1;
+    min-width: 90px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.forecast-day {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.forecast-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--text-secondary);
+}
+
+.forecast-temp {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.forecast-temp span {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+/* Markets Widget */
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.refresh-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: white;
+    transform: rotate(180deg);
+}
+
+.refresh-btn i {
+    width: 14px;
+    height: 14px;
+}
+
+.markets-table-wrapper {
+    width: 100%;
+}
+
+.markets-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.markets-table th {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.markets-table td {
+    padding: 0.875rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.95rem;
+}
+
+.markets-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.markets-table td.sym {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.markets-table td.name {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.markets-table td.price {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.markets-table td.change {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.markets-table .text-right {
+    text-align: right;
+}
+
+.positive-change {
+    color: var(--success) !important;
+}
+
+.negative-change {
+    color: var(--danger) !important;
+}
+
+/* Habit Tracker Widget */
+.habit-stats span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.tracker-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tracker-table th, .tracker-table td {
+    padding: 0.875rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.tracker-table th:first-child, .tracker-table td:first-child {
+    text-align: left;
+    padding-left: 0;
+    min-width: 150px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.tracker-table th {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.tracker-header-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.tracker-header-day .day-lbl {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.tracker-header-day .date-lbl {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.tracker-header-day.is-today .day-lbl {
+    color: var(--accent);
+}
+
+/* Custom Checkbox styles */
+.habit-cell {
+    position: relative;
+}
+
+.habit-checkbox-wrapper {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+}
+
+.habit-checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.habit-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.habit-checkbox-wrapper:hover .habit-checkmark {
+    border-color: var(--accent);
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.habit-checkbox-wrapper input:checked ~ .habit-checkmark {
+    background-color: var(--success);
+    border-color: var(--success);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.habit-checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.habit-checkbox-wrapper input:checked ~ .habit-checkmark::after {
+    display: block;
+}
+
+.habit-checkbox-wrapper .habit-checkmark::after {
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.is-today-column .habit-checkmark {
+    border-color: var(--accent);
+}
+
+/* News Widget Tabs */
+.widget-header-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.25rem;
+    gap: 0.5rem;
+}
+
+.news-tab {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-muted);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.news-tab:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.news-tab.active {
+    color: var(--accent);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.news-tab i {
+    width: 16px;
+    height: 16px;
+}
+
+.news-content-wrapper {
+    position: relative;
+    min-height: 200px;
+}
+
+.news-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.news-item {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1.1rem;
+    transition: var(--transition);
+}
+
+.news-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.news-item-title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.news-item-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.news-item-title a:hover {
+    color: var(--accent);
+}
+
+.news-item-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Spinner & Loader */
+.news-loader, .news-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    border-top-color: var(--accent);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.news-error i {
+    width: 32px;
+    height: 32px;
+    color: var(--danger);
+}
+
+.retry-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.retry-btn:hover {
+    background: #4f46e5;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Chase Freedom Widget Styling */
+.quarter-selector {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+    padding: 0.2rem;
+    gap: 0.1rem;
+}
+
+.q-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.q-btn:hover {
+    color: var(--text-primary);
+}
+
+.q-btn.active {
+    background: var(--accent);
+    color: white;
+}
+
+.chase-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.chase-freedom-card {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1.58 / 1; /* Standard credit card ratio */
+    background: linear-gradient(135deg, #0f2440 0%, #173f73 50%, #0c182d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chase-freedom-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(135deg, #e5c07b 0%, #d19a66 100%);
+    border-radius: 6px;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+}
+
+.card-logo {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.card-logo::before {
+    content: 'Chase ';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9rem;
+}
+
+.card-bonus-badge {
+    position: absolute;
+    top: 3.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #0b0f19;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.card-categories-display {
+    margin-top: 1.25rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.card-category-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.card-category-item i {
+    width: 14px;
+    height: 14px;
+    color: #fbbf24;
+}
+
+.card-status-info {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}

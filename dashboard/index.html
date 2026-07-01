@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal daily dashboard for Dr. Julian Nolen">
+    <title>Daily Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 id="greeting">Good morning, Julian</h1>
+                <p id="date-string">Wednesday, July 1, 2026</p>
+            </div>
+            <div class="header-right">
+                <div class="clock-display">
+                    <span id="clock-time">08:00:00</span>
+                    <span id="clock-ampm">AM</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Grid Layout -->
+        <main class="dashboard-grid">
+            
+            <!-- Weather & AQI Widget -->
+            <section class="widget-card weather-widget" id="weather-widget">
+                <div class="widget-header">
+                    <div class="widget-title">
+                        <i data-lucide="cloud-sun"></i>
+                        <span>Weather & Air Quality</span>
+                    </div>
+                    <span class="location-badge"><i data-lucide="map-pin"></i> Helena, MT</span>
+                </div>
+                
+                <div class="weather-current-container">
+                    <div class="weather-main-info">
+                        <div id="weather-icon-large" class="weather-icon-large">
+                            <i data-lucide="sun" class="animated-weather-icon"></i>
+                        </div>
+                        <div>
+                            <div class="current-temp-display"><span id="current-temp">--</span>°F</div>
+                            <div id="weather-desc" class="weather-desc">Loading weather...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-sub-info">
+                        <div class="sub-info-item">
+                            <span class="label">High / Low</span>
+                            <span class="val" id="today-high-low">--° / --°</span>
+                        </div>
+                        <div class="sub-info-item aqi-display" id="aqi-display">
+                            <span class="label">Air Quality (AQI)</span>
+                            <div class="aqi-val-wrapper">
+                                <span class="aqi-dot" id="aqi-dot"></span>
+                                <span class="val" id="aqi-value">--</span>
+                                <span class="aqi-label" id="aqi-label">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7-Day Forecast -->
+                <div class="forecast-section">
+                    <h4>7-Day Forecast</h4>
+                    <div class="forecast-scroll" id="forecast-scroll">
+                        <!-- Forecast items injected here by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stock & Crypto Markets Widget -->
+            <section class="widget-card markets-widget" id="markets-widget">
+                <div class="widget-header">
+                    <div class="widget-title">
+                        <i data-lucide="trending-up"></i>
+                        <span>Markets Overview</span>
+                    </div>
+                    <button class="refresh-btn" id="refresh-markets" title="Refresh Markets">
+                        <i data-lucide="rotate-cw"></i>
+                    </button>
+                </div>
+                <div class="markets-table-wrapper">
+                    <table class="markets-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Description</th>
+                                <th class="text-right">Price</th>
+                                <th class="text-right">Daily Change</th>
+                            </tr>
+                        </thead>
+                        <tbody id="markets-tbody">
+                            <!-- Stock/Crypto rows injected here by JS -->
+                            <tr id="row-VTI">
+                                <td class="sym">VTI</td>
+                                <td class="name">Vanguard Total Stock</td>
+                                <td class="price text-right" id="price-VTI">$--.--</td>
+                                <td class="change text-right" id="change-VTI">--.--%</td>
+                            </tr>
+                            <tr id="row-VXUS">
+                                <td class="sym">VXUS</td>
+                                <td class="name">Vanguard Total Int'l</td>
+                                <td class="price text-right" id="price-VXUS">$--.--</td>
+                                <td class="change text-right" id="change-VXUS">--.--%</td>
+                            </tr>
+                            <tr id="row-MSFT">
+                                <td class="sym">MSFT</td>
+                                <td class="name">Microsoft Corp.</td>
+                                <td class="price text-right" id="price-MSFT">$--.--</td>
+                                <td class="change text-right" id="change-MSFT">--.--%</td>
+                            </tr>
+                            <tr id="row-SONY">
+                                <td class="sym">SONY</td>
+                                <td class="name">Sony Group Corp.</td>
+                                <td class="price text-right" id="price-SONY">$--.--</td>
+                                <td class="change text-right" id="change-SONY">--.--%</td>
+                            </tr>
+                            <tr id="row-BTC">
+                                <td class="sym">BTC</td>
+                                <td class="name">Bitcoin</td>
+                                <td class="price text-right" id="price-BTC">$--.--</td>
+                                <td class="change text-right" id="change-BTC">--.--%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Habit Tracker Widget -->
+            <section class="widget-card habit-tracker-widget" id="habit-tracker-widget">
+                <div class="widget-header">
+                    <div class="widget-title">
+                        <i data-lucide="check-circle-2"></i>
+                        <span>Habit Tracker</span>
+                    </div>
+                    <div class="habit-stats">
+                        <span id="habit-completion-rate">0% completed today</span>
+                    </div>
+                </div>
+                
+                <div class="tracker-table-wrapper">
+                    <table class="tracker-table">
+                        <thead>
+                            <tr id="tracker-headers">
+                                <th>Habit</th>
+                                <!-- Day headers (e.g. T, F, S, S, M, T, W) will be injected here by JS -->
+                            </tr>
+                        </thead>
+                        <tbody id="tracker-tbody">
+                            <!-- Habit rows will be injected here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- News Briefing Widget -->
+            <section class="widget-card news-widget" id="news-widget">
+                <div class="widget-header-tabs">
+                    <button class="news-tab active" data-tab="science" id="tab-science">
+                        <i data-lucide="beaker"></i> Science
+                    </button>
+                    <button class="news-tab" data-tab="goodnews" id="tab-goodnews">
+                        <i data-lucide="smile"></i> Good News
+                    </button>
+                    <button class="news-tab" data-tab="investment" id="tab-investment">
+                        <i data-lucide="briefcase"></i> Investment
+                    </button>
+                </div>
+                
+                <div class="news-content-wrapper">
+                    <div id="news-loader" class="news-loader hidden">
+                        <div class="spinner"></div>
+                        <span>Fetching briefing...</span>
+                    </div>
+                    <div id="news-error" class="news-error hidden">
+                        <i data-lucide="alert-triangle"></i>
+                        <span>Failed to load news briefing.</span>
+                        <button id="retry-news-btn" class="retry-btn">Retry</button>
+                    </div>
+                    <ul class="news-list" id="news-list">
+                        <!-- News items injected here by JS -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Chase Freedom Rewards Widget -->
+            <section class="widget-card chase-widget" id="chase-widget">
+                <div class="widget-header">
+                    <div class="widget-title">
+                        <i data-lucide="credit-card"></i>
+                        <span>Chase Freedom 5% Categories</span>
+                    </div>
+                    <div class="quarter-selector">
+                        <button class="q-btn" data-quarter="1" id="q1-btn">Q1</button>
+                        <button class="q-btn" data-quarter="2" id="q2-btn">Q2</button>
+                        <button class="q-btn active" data-quarter="3" id="q3-btn">Q3</button>
+                        <button class="q-btn" data-quarter="4" id="q4-btn">Q4</button>
+                    </div>
+                </div>
+
+                <div class="chase-card-wrapper">
+                    <div class="chase-freedom-card">
+                        <div class="card-chip"></div>
+                        <div class="card-logo">Freedom</div>
+                        <div class="card-bonus-badge">5% Back</div>
+                        <div class="card-categories-display" id="card-categories-list">
+                            <!-- Categories injected here -->
+                        </div>
+                        <div class="card-status-info" id="card-quarter-info">
+                            2026 Q3 (Jul 1 - Sep 30)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Lucide Icons library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Main JS -->
+    <script src="app.js"></script>
+</body>
+</html>
